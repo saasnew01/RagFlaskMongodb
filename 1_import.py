@@ -1,8 +1,3 @@
-## This script imports the tinytweets.json file into your mongo database
-## It will work for any json file containing a single array of objects
-## There's nothing specific to llamaindex going on here
-## You can get your data into mongo any way you like.
-
 json_file = 'tinytweets.json'
 
 # Load environment variables from local .env file
@@ -15,7 +10,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 # Load the tweets from a local file
-with open(json_file, 'r') as f:
+with open(json_file, 'r', encoding='utf-8') as f:
     tweets = json.load(f)
 
 # Create a new client and connect to the server
